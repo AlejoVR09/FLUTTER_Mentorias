@@ -5,6 +5,8 @@ import 'package:app/presentation/state_management/state_managers/provider/page_p
 import 'package:app/presentation/state_management/state_managers/riverpod/page_riverpod.dart';
 import 'package:app/presentation/state_management/state_managers/set_state/set_state.dart';
 import 'package:app/presentation/widgets_screen/home_widgets.dart';
+import 'package:app/presentation/widgets_screen/slivers/slivers.dart';
+import 'package:app/presentation/widgets_screen/wrap/wrap.dart';
 import 'package:go_router/go_router.dart';
 
 final routes = GoRouter(
@@ -69,11 +71,16 @@ final routes = GoRouter(
       routes: [
         GoRoute(
           path: 'wrap',
-          name: 'Wrap',
+          name: Wraps.name,
           builder: (context, state) {
-            return SetState(
-              title: 'Set State',
-            );
+            return Wraps();
+          },
+        ),
+        GoRoute(
+          path: 'slivers',
+          name: Slivers.name,
+          builder: (context, state) {
+            return Slivers();
           },
         ),
       ],

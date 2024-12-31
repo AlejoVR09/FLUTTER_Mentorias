@@ -18,7 +18,12 @@ class NavegationList extends StatelessWidget {
         final routerItem = routerEntityList[index];
         return ListTile(
           onTap: () {
-            context.go(routerItem.link);
+            if (routerItem.parentLink.isEmpty ) {
+              context.go(routerItem.link);
+            }
+            else{
+              context.go('${routerItem.parentLink}/${routerItem.link}');
+            }
           },
           title: Text(
             routerItem.title,

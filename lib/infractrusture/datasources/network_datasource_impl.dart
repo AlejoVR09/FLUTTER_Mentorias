@@ -11,4 +11,24 @@ class NetworkDatasourceImpl implements NetworkDatasource {
   String fetchData() {
     return 'Example Done';
   }
+
+  @override
+  void create() {
+    // TODO: implement create
+  }
+
+  @override
+  void delete() {
+    // TODO: implement delete
+  }
+
+  @override
+  void read() {
+    // TODO: implement read
+  }
+
+  @override
+  void update() {
+    // TODO: implement update
+  }
 }

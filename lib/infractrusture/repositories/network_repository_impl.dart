@@ -19,21 +19,21 @@ class NetworkRepositoryImpl implements NetworkRepository {
 
   @override
   void create() {
-    // TODO: implement create
+    networkDatasource.create();
   }
 
   @override
   void delete() {
-    // TODO: implement delete
+    networkDatasource.delete();
   }
 
   @override
   void read() {
-    // TODO: implement read
+    networkDatasource.read();
   }
 
   @override
   void update() {
-    // TODO: implement update
+    networkDatasource.update();
   }
 }

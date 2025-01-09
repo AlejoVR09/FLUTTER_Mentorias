@@ -14,26 +14,26 @@ class NetworkRepositoryImpl implements NetworkRepository {
 
   @override
   String getSomething() {
-    return networkDatasource.fetchData();
+    throw UnimplementedError();
   }
 
   @override
-  void create() {
-    networkDatasource.create();
+  Future<String> create() async {
+    return await networkDatasource.create();
   }
 
   @override
-  void delete() {
-    networkDatasource.delete();
+  Future<String> delete() async {
+    return await networkDatasource.delete();
   }
 
   @override
-  void read() {
-    networkDatasource.read();
+  Future<String> read() async {
+    return await networkDatasource.read();
   }
 
   @override
-  void update() {
-    networkDatasource.update();
+  Future<String> update() async {
+    return await networkDatasource.update();
   }
 }

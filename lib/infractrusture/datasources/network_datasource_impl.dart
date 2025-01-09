@@ -8,27 +8,26 @@ class NetworkDatasourceImpl implements NetworkDatasource {
   String get url => 'http://example.com';
 
   @override
-  String fetchData() {
-    return 'Example Done';
+  Future<String> create() async {
+    Future.delayed(Duration(seconds: 1));
+    return 'created';
   }
 
   @override
-  void create() {
-    // TODO: implement create
+  Future<String> delete() async {
+    Future.delayed(Duration(seconds: 1));
+    return 'deleted';
   }
 
   @override
-  void delete() {
-    // TODO: implement delete
+  Future<String> read() async {
+    Future.delayed(Duration(seconds: 1));
+    return 'readed';
   }
 
   @override
-  void read() {
-    // TODO: implement read
-  }
-
-  @override
-  void update() {
-    // TODO: implement update
+  Future<String> update() async {
+    Future.delayed(Duration(seconds: 1));
+    return 'updated';
   }
 }

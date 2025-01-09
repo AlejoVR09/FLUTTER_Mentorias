@@ -45,6 +45,68 @@ void main() {
         // Verify that there are 10 Chips in total
         expect(find.byType(Chip), findsNWidgets(10));
       });
+      testWidgets('Testing the wrap section title',
+          (WidgetTester tester) async {
+        // Build the Wraps widget
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Wraps(),
+          ),
+        );
+
+        // Verify that there are 10 Chips in total
+        expect(find.text('Direction'), findsOneWidget);
+      });
+      testWidgets('Testing the wrap section title',
+          (WidgetTester tester) async {
+        // Build the Wraps widget
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Wraps(),
+          ),
+        );
+
+        // Verify the text generated with a helper method
+        expect(find.text('Direction'), findsOneWidget);
+        expect(find.text('Spacing'), findsOneWidget);
+      });
+      testWidgets('Testing the helper method title',
+          (WidgetTester tester) async {
+        // Build the Wraps widget
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Wraps().getWrapTitleSection('Title'),
+          ),
+        );
+
+        // Verify the text use in the helper method
+        expect(find.text('Title'), findsOneWidget);
+      });
+      testWidgets('''Testing the helper method title if it was private 
+        or in a private widget class
+      ''', (WidgetTester tester) async {
+        
+        // Define a helper method to generate a title
+        Widget getWrapTitleSection(String title) {
+          return Column(
+            children: [
+              SizedBox(height: 20),
+              Text(title),
+              SizedBox(height: 20),
+            ],
+          );
+        }
+
+        // Build the Wraps widget
+        await tester.pumpWidget(
+          MaterialApp(
+            home: getWrapTitleSection('Title'),
+          ),
+        );
+
+        // Verify the text use in the helper method
+        expect(find.text('Title'), findsOneWidget);
+      });
     },
   );
 }

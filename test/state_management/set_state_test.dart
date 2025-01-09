@@ -6,11 +6,24 @@ void main() {
   testWidgets(
     'Testing Set State feature',
     (widgetTester) async {
-      await widgetTester.pumpWidget(Scaffold(body: SetState(title: 'Testing')));
-      // ver
+      await widgetTester.pumpWidget(
+        MaterialApp(
+          home: SetState(title: 'Testing'),
+        ),
+      );
+      // Find the initial value of the counter
       final counter = find.text('0');
 
+      // Check if the initial value is 0
       expect(counter, findsOneWidget);
+
+      // Tap the '+' button
+      await widgetTester.tap(find.byIcon(Icons.add));
+      await widgetTester.pump();
+
+      // Verify the counter has incremented to 1
+      final counterPlus = find.text('1');
+      expect(counterPlus, findsOneWidget);
     },
   );
 }

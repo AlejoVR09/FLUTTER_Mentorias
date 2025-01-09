@@ -5,5 +5,4 @@ import 'package:app/domain/entities/datasources/datasources.dart';
 /// {@endtemplate}
 abstract class NetworkDatasource extends Datasources {
   final String url = '';
-  String fetchData();
 }

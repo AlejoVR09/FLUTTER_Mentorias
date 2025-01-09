@@ -5,30 +5,37 @@ class Wraps extends StatelessWidget {
 
   static String name = "Wraps";
 
+  /// helper method that create a column with a text
+  /// represent a title for a section in a view
+  Widget getWrapTitleSection(String title) {
+    return Column(
+      children: [
+        SizedBox(height: 20),
+        Text(title),
+        SizedBox(height: 20),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Wraps'),
       ),
-      body: _BodyWraps(),
-    );
-  }
-}
-
-class _BodyWraps extends StatelessWidget {
-  const _BodyWraps();
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          _WrapDirection(),
-          _WrapDirection(
-            direction: Axis.vertical,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              getWrapTitleSection('Direction'),
+              _WrapDirection(),
+              _WrapDirection(
+                direction: Axis.vertical,
+              ),
+              getWrapTitleSection('Spacing'),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -37,15 +44,18 @@ class _BodyWraps extends StatelessWidget {
 class _WrapDirection extends StatelessWidget {
   const _WrapDirection({
     this.direction = Axis.horizontal,
+    this.horizontalSpacing = 1,
   });
 
   final Axis direction;
+  final double horizontalSpacing;
 
   @override
   Widget build(BuildContext context) {
     return Wrap(
       runAlignment: WrapAlignment.spaceAround,
       direction: direction,
+      spacing: horizontalSpacing,
       children: List.generate(
         5,
         (index) => Padding(

@@ -13,7 +13,7 @@ void main() {
           NetworkRepositoryImpl(networkDatasource: mockNetworkDataSource);
       test(
         'Testing the create method',
-        () async{
+        () async {
           // stubbing the create method
           when(
             () => mockNetworkDataSource.create(),
@@ -27,6 +27,10 @@ void main() {
 
           // verify that the response is correct
           expect(response, 'created');
+          // verify that the method was called once
+          verify(
+            () => mockNetworkDataSource.create(),
+          ).called(1);
         },
       );
       test(
@@ -44,6 +48,10 @@ void main() {
           final response = await networkRepo.read();
           // verify that the response is correct
           expect(response, 'readed');
+          // verify that the method was called once
+          verify(
+            () => mockNetworkDataSource.read(),
+          ).called(1);
         },
       );
       test(
@@ -61,11 +69,15 @@ void main() {
           final response = await networkRepo.delete();
           // verify that the response is correct
           expect(response, 'deleted');
+          // verify that the method was called once
+          verify(
+            () => mockNetworkDataSource.delete(),
+          ).called(1);
         },
       );
       test(
         'Testing the update method',
-        () async{
+        () async {
           // stubbing the update method
           when(
             () => mockNetworkDataSource.update(),
@@ -78,6 +90,10 @@ void main() {
           final response = await networkRepo.update();
           // verify that the response is correct
           expect(response, 'updated');
+          // verify that the method was called once
+          verify(
+            () => mockNetworkDataSource.update(),
+          ).called(1);
         },
       );
     },

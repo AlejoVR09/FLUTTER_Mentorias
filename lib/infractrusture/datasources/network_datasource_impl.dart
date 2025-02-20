@@ -2,6 +2,7 @@ import 'package:app/domain/datasources/network_datasource.dart';
 
 /// {@template network_datasource_impl}
 /// class implementation that simulates the obtaining of data from network
+/// Interface -> Implementation
 /// {@endtemplate}
 class NetworkDatasourceImpl implements NetworkDatasource {
   @override

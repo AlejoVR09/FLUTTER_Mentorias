@@ -74,6 +74,8 @@ void main() {
           (WidgetTester tester) async {
         // Build the Wraps widget
         await tester.pumpWidget(
+        /// Build the complete widget instead of the system under testing
+        /// (helper method)
           MaterialApp(
             home: Wraps().getWrapTitleSection('Title'),
           ),
@@ -82,31 +84,33 @@ void main() {
         // Verify the text use in the helper method
         expect(find.text('Title'), findsOneWidget);
       });
-      testWidgets('''Testing the helper method title if it was private 
-        or in a private widget class
-      ''', (WidgetTester tester) async {
+
+      // TODO: Wrong way for testing helper methods
+      // testWidgets('''Testing the helper method title if it was private 
+      //   or in a private widget class
+      // ''', (WidgetTester tester) async {
         
-        // Define a helper method to generate a title
-        Widget getWrapTitleSection(String title) {
-          return Column(
-            children: [
-              SizedBox(height: 20),
-              Text(title),
-              SizedBox(height: 20),
-            ],
-          );
-        }
+      //   // Define a helper method to generate a title
+      //   Widget getWrapTitleSection(String title) {
+      //     return Column(
+      //       children: [
+      //         SizedBox(height: 20),
+      //         Text(title),
+      //         SizedBox(height: 20),
+      //       ],
+      //     );
+      //   }
 
-        // Build the Wraps widget
-        await tester.pumpWidget(
-          MaterialApp(
-            home: getWrapTitleSection('Title'),
-          ),
-        );
+      //   // Build the Wraps widget
+      //   await tester.pumpWidget(
+      //     MaterialApp(
+      //       home: Wraps().getWrapTitleSection('Title'),
+      //     ),
+      //   );
 
-        // Verify the text use in the helper method
-        expect(find.text('Title'), findsOneWidget);
-      });
+      //   // Verify the text use in the helper method
+      //   expect(find.text('Title'), findsOneWidget);
+      // });
     },
   );
 }

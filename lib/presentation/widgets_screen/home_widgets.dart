@@ -25,7 +25,7 @@ class HomeWidgets extends StatelessWidget {
 }
 
 class _BodyHomeWdiget extends StatelessWidget {
-  const _BodyHomeWdiget({super.key});
+  const _BodyHomeWdiget();
 
   @override
   Widget build(BuildContext context) {

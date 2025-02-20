@@ -5,7 +5,7 @@ class Wraps extends StatelessWidget {
 
   static String name = "Wraps";
 
-  /// helper method that create a column with a text
+  /// helper method that creates a column with a text
   /// represent a title for a section in a view
   Widget getWrapTitleSection(String title) {
     return Column(
@@ -31,8 +31,10 @@ class Wraps extends StatelessWidget {
               _WrapDirection(),
               _WrapDirection(
                 direction: Axis.vertical,
+                horizontalSpacing: 10,
               ),
               getWrapTitleSection('Spacing'),
+              _WrapOverflow(),
             ],
           ),
         ),
@@ -65,6 +67,33 @@ class _WrapDirection extends StatelessWidget {
           child: Chip(
             label: Text(
               'Item $index',
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _WrapOverflow extends StatelessWidget {
+  const _WrapOverflow();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 25,
+      child: Wrap(
+        clipBehavior: Clip.none,
+        children: List.generate(
+          10,
+          (index) => Padding(
+            padding: const EdgeInsets.all(
+              2,
+            ),
+            child: Chip(
+              label: Text(
+                'Item $index',
+              ),
             ),
           ),
         ),

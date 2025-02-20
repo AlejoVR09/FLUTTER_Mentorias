@@ -3,6 +3,9 @@ import 'package:app/presentation/state_management/state_managers/bloc/page_bloc.
 import 'package:app/presentation/state_management/state_managers/provider/page_provider.dart';
 import 'package:app/presentation/state_management/state_managers/riverpod/page_riverpod.dart';
 import 'package:app/presentation/state_management/state_managers/set_state/set_state.dart';
+import 'package:app/presentation/widgets_screen/expanded/expanded.dart';
+import 'package:app/presentation/widgets_screen/flex/flex.dart';
+import 'package:app/presentation/widgets_screen/flexible/flexible.dart';
 import 'package:app/presentation/widgets_screen/home_widgets.dart';
 import 'package:app/presentation/widgets_screen/slivers/slivers.dart';
 import 'package:app/presentation/widgets_screen/wrap/wrap.dart';
@@ -99,5 +102,26 @@ final routerWidgets = [
     parentLink: '/homeWidgets',
     icon: Icons.folder_zip_outlined,
     widget: Slivers(),
+  ),
+  RouterEntity(
+    title: 'Flexible',
+    link: 'flexible',
+    parentLink: '/homeWidgets',
+    icon: Icons.format_color_text,
+    widget: FlexibleWidget(),
+  ),
+  RouterEntity(
+    title: 'Flex',
+    link: 'flex',
+    parentLink: '/homeWidgets',
+    icon: Icons.zoom_out_map_outlined,
+    widget: FlexWidget(),
+  ),
+  RouterEntity(
+    title: 'Expanded',
+    link: 'expanded',
+    parentLink: '/homeWidgets',
+    icon: Icons.wysiwyg_sharp,
+    widget: ExpandedWidget(),
   ),
 ];
